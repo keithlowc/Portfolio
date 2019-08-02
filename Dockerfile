@@ -2,6 +2,10 @@ FROM python:3.7
 
 ENV PYTHONBUFFERED 1 
 
+RUN apt-get update && apt-get install -y \
+    gettext \
+    libpq-dev
+
 RUN mkdir /src
 WORKDIR /src
 
