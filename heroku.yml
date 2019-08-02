@@ -13,4 +13,4 @@ release:
  command:
    - chmod 755 release.sh && ./release.sh
 run:
- web: uwsgi --http 0:$PORT --wsgi-file ./config/wsgi.py --master --processes 4 --threads 2
+ web: uwsgi --http 0:$PORT --wsgi-file ./portfolio/wsgi.py --master --processes 4 --threads 2
