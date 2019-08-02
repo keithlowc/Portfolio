@@ -151,11 +151,11 @@ USE_TZ = True
 
 ##  -------- Uncomment this one for only backend
 
-STATIC_URL = BASE_DIR + '/static/'
-STATIC_ROOT = (root - 1)('static')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = (root - 1)('media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = (root - 1)('media')
 
 # djang-heroku setting
 
@@ -165,9 +165,3 @@ MEDIA_ROOT = (root - 1)('media')
 #     import django_heroku
 #     django_heroku.settings(locals())
 
-# # location where you will store your static files like bootstrap
-# STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static"),
-# ]
-# # location where django collect all static files
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
