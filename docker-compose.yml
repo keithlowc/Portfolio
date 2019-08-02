@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  database:
+    container_name: portfolio_db
+    image: mysql:5.7
+    environment:
+       MYSQL_DATABASE: portfolio
+       MYSQL_USER: web
+       MYSQL_PASSWORD: root
+       MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "127.0.0.1:3310:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+  web:
+    build: .
+    container_name: portfolio_main
+    command: python3 manage.py runserver 0.0.0.0:8000
+    environment: 
+      - "PYTHONUNBUFFERED=1"
+    volumes:
+      - .:/src
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+volumes:
+  mysqldata:
