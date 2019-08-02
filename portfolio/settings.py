@@ -151,7 +151,7 @@ USE_TZ = True
 
 ##  -------- Uncomment this one for only backend
 
-STATIC_URL = '/static/'
+STATIC_URL = BASE_DIR + '/static/'
 STATIC_ROOT = (root - 1)('static')
 
 MEDIA_URL = '/media/'
