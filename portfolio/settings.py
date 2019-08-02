@@ -149,21 +149,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
-# STATIC_ROOT = (root - 1)('static')
+##  -------- Uncomment this one for only backend
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = (root - 1)('media')
+STATIC_URL = '/static/'
+STATIC_ROOT = (root - 1)('static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = (root - 1)('media')
 
 # djang-heroku setting
 
-if PRODUCTION_ENV:
-    import django_heroku
-    django_heroku.settings(locals())
+## -------- With django templates formatting
 
-# location where you will store your static files like bootstrap
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
-]
-# location where django collect all static files
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# if PRODUCTION_ENV:
+#     import django_heroku
+#     django_heroku.settings(locals())
+
+# # location where you will store your static files like bootstrap
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+# ]
+# # location where django collect all static files
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
