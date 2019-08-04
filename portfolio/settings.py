@@ -47,6 +47,7 @@ COMMON = [
 
 # Applications created by you
 APPS = [
+    'work',
 ]
 
 # Default Application definition
@@ -104,11 +105,11 @@ if PRODUCTION_ENV:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'portfolio',
-            'USER': 'web',
-            'PASSWORD': 'root',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
             'HOST': 'database',
+            'PORT': 5432
         }
     }
 

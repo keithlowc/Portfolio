@@ -1,18 +1,24 @@
 version: '3'
 
 services:
+  # database:
+  #   container_name: portfolio_db
+  #   image: mysql:5.7
+  #   environment:
+  #      MYSQL_DATABASE: portfolio
+  #      MYSQL_USER: web
+  #      MYSQL_PASSWORD: root
+  #      MYSQL_ROOT_PASSWORD: root
+  #   ports:
+  #     - "127.0.0.1:3310:3306"
+  #   volumes:
+  #     - mysqldata:/var/lib/mysql
+
   database:
     container_name: portfolio_db
-    image: mysql:5.7
-    environment:
-       MYSQL_DATABASE: portfolio
-       MYSQL_USER: web
-       MYSQL_PASSWORD: root
-       MYSQL_ROOT_PASSWORD: root
-    ports:
-      - "127.0.0.1:3310:3306"
+    image: postgres:10.1-alpine
     volumes:
-      - mysqldata:/var/lib/mysql
+      - postgres_data:/var/lib/postgresql/data/
 
   web:
     build: .
@@ -28,4 +34,4 @@ services:
       - database
 
 volumes:
-  mysqldata:
+  postgres_data:
