@@ -156,7 +156,7 @@ print('Hosts: ', ALLOWED_HOSTS)
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 print('Hello world another tr a')
 print('debug: ', DEBUG)
@@ -164,6 +164,8 @@ print('Hosts: ', ALLOWED_HOSTS)
 print('Production: ', PRODUCTION_ENV)
 
 # django_heroku.settings(locals())
+
+# Logging and debugging
 
 ADMINS = [('Keith', 'keithlowc@gmail.com')]
 
