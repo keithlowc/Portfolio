@@ -23,7 +23,8 @@ if PRODUCTION_ENV:
     BASE_DIR = root()
     SECRET_KEY = env('SECRET_KEY')
     DEBUG = False
-    ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+    ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',]
+    # ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 else:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     SECRET_KEY = '31k61=f^+4^)084x+^vfms(axi%$^3^^lhoy(s)z@mprzwn9@='
