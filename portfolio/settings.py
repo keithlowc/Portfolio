@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import environ
+import django_heroku
 
 root = environ.Path(__file__) - 2
 env = environ.Env(DEBUG=(bool, False), )
@@ -25,6 +26,7 @@ if PRODUCTION_ENV:
     DEBUG = False
     ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',]
     # ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+    print('Production activated')
 else:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     SECRET_KEY = '31k61=f^+4^)084x+^vfms(axi%$^3^^lhoy(s)z@mprzwn9@='
@@ -32,6 +34,9 @@ else:
     ALLOWED_HOSTS = [
         '*',
     ]
+    print('Here')
+
+print('New Hosts: ', ALLOWED_HOSTS)
 
 # Application for local development
 LOCAL = [
@@ -145,9 +150,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+print('Hosts: ', ALLOWED_HOSTS)
 
-import django_heroku
-django_heroku.settings(locals())
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
@@ -156,6 +160,8 @@ print('Hello world another tr a')
 print('debug: ', DEBUG)
 print('Hosts: ', ALLOWED_HOSTS)
 print('Production: ', PRODUCTION_ENV)
+
+# django_heroku.settings(locals())
 
 
 
