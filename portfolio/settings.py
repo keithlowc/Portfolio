@@ -165,7 +165,7 @@ print('Production: ', PRODUCTION_ENV)
 
 # django_heroku.settings(locals())
 
-
+ADMINS = [('Keith', 'keithlowc@gmail.com')]
 
 
 
