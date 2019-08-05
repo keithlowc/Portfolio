@@ -23,8 +23,9 @@ PRODUCTION_ENV = env.bool('PRODUCTION', default=False)
 if PRODUCTION_ENV:
     BASE_DIR = root()
     SECRET_KEY = env('SECRET_KEY')
-    DEBUG = False
-    ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',]
+    DEBUG = env.boolean('DEBUG', default=True)
+    ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',
+                     '.herokuapp.com',]
     # ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
     print('Production activated')
 else:
