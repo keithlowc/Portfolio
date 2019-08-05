@@ -151,7 +151,7 @@ django_heroku.settings(locals())
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
 
-print('Hello world')
+print('Hello world another try')
 print('debug: ', DEBUG)
 print('Hosts: ', ALLOWED_HOSTS)
 print('Production: ', PRODUCTION_ENV)
