@@ -28,12 +28,9 @@ else:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     SECRET_KEY = '31k61=f^+4^)084x+^vfms(axi%$^3^^lhoy(s)z@mprzwn9@='
     DEBUG = True
-
-print(BASE_DIR)
-
-ALLOWED_HOSTS = [
-    '*',
-]
+    ALLOWED_HOSTS = [
+        '*',
+    ]
 
 # Application for local development
 LOCAL = [
