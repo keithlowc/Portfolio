@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import environ
-import django_heroku
+# import django_heroku
 
 root = environ.Path(__file__) - 2
 env = environ.Env(DEBUG=(bool, False), )
@@ -72,6 +72,7 @@ else:
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -114,7 +115,7 @@ else:
             'NAME': 'postgres',
             'USER': 'postgres',
             'HOST': 'database',
-            'PORT': 5432
+            'PORT': 5432 #Default port
         }
     }
 
@@ -152,12 +153,9 @@ USE_TZ = True
 
 print('Hosts: ', ALLOWED_HOSTS)
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "staticfiles/admin"),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 print('Hello world another tr a')
 print('debug: ', DEBUG)
