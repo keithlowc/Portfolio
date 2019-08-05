@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import environ
-# import django_heroku
 
 root = environ.Path(__file__) - 2
 env = environ.Env(DEBUG=(bool, False), )
@@ -35,9 +34,6 @@ else:
     ALLOWED_HOSTS = [
         '*',
     ]
-    print('Here')
-
-print('New Hosts: ', ALLOWED_HOSTS)
 
 # Application for local development
 LOCAL = [
@@ -73,7 +69,6 @@ else:
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -152,27 +147,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-print('Hosts: ', ALLOWED_HOSTS)
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-if PRODUCTION_ENV:
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-print('Hello world another tr a')
-print('debug: ', DEBUG)
-print('Hosts: ', ALLOWED_HOSTS)
-print('Production: ', PRODUCTION_ENV)
-
-# django_heroku.settings(locals())
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Logging and debugging in Heroku Production
-
-ADMINS = [('Keith', 'keithlowc@gmail.com')]
 
 LOGGING = {
     'version': 1,
@@ -210,4 +188,12 @@ LOGGING = {
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
+INSTALLED_APPS.extend(["whitenoise.runserver_nostatic"])
 
+# Must insert after SecurityMiddleware, which is first in settings/common.py
+MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+STATIC_URL = "/static/"
+WHITENOISE_ROOT = os.path.join(BASE_DIR, "static")
