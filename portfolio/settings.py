@@ -29,6 +29,8 @@ else:
     SECRET_KEY = '31k61=f^+4^)084x+^vfms(axi%$^3^^lhoy(s)z@mprzwn9@='
     DEBUG = True
 
+print(BASE_DIR)
+
 ALLOWED_HOSTS = [
     '*',
 ]
@@ -81,7 +83,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR + '/../templates'
+            BASE_DIR + '/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -167,14 +169,15 @@ USE_TZ = True
 
 import django_heroku
 django_heroku.settings(locals())
-# static files settings
-STATIC_URL = '/static/'
-# location where you will store your static files like bootstrap
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
-]
-# location where django collect all static files
+
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_URL = '/static/'
+
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+# ]
+
+
 
 
 
