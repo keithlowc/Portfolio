@@ -193,7 +193,7 @@ INSTALLED_APPS.extend(["whitenoise.runserver_nostatic"])
 # Must insert after SecurityMiddleware, which is first in settings/common.py
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = "staticfiles"
 
 STATIC_URL = "/static/"
 WHITENOISE_ROOT = os.path.join(BASE_DIR, "static")
