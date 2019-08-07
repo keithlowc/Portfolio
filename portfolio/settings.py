@@ -147,8 +147,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Logging and debugging in Heroku Production
 
@@ -188,12 +188,4 @@ LOGGING = {
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
-INSTALLED_APPS.extend(["whitenoise.runserver_nostatic"])
 
-# Must insert after SecurityMiddleware, which is first in settings/common.py
-MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = "staticfiles"
-
-STATIC_URL = "/static/"
-WHITENOISE_ROOT = os.path.join(BASE_DIR, "static")

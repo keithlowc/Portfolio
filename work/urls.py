@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import show_base
+from .views import show_intro
 
 urlpatterns = [
-    path('landing/', show_base, name='show_base'),
+    path('', show_intro, name='show_intro'),
 ]
