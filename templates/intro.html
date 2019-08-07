@@ -2,26 +2,39 @@
 
 {% block content %}
 
-    <div id="Intro" class="container">
+    <div id="Intro" class="container container_full_height">
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
-                <div class="section scrollspy">
+                <div class="section">
                     <img src="https://png.pngtree.com/svg/20160307/52c66f1f8b.png" alt="" class="circle responsive-img mb-4">
                     <h1>Keith Low</h1>
                     <h6>Freelance Software Engineer</h6>
                     <p><b>NYC</b></p>
+                    <div class="row">
+                        <div class="col s4">
+                            <a href="https://github.com/keithlowc" class="waves-effect waves-teal"><i class="fab fa-github fa-4x"></i></a>
+                        </div>
+                        <div class="col s4">
+                            <a href="https://linkedin.com/keithlowc" class="waves-effect waves-teal"><i class="fab fa-linkedin fa-4x"></i></a>
+                        </div>
+                        <div class="col s4">
+                            <a href="https://instagram.com/keithlwc" class="waves-effect waves-teal"><i class="fab fa-instagram fa-4x"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="About_me" class="container">
+    <div class="divider"></div>
+
+    <div id="About" class="container">
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
-                <div class="section scrollspy">
+            <h1>About</h1>
+                <div class="section">
                     <div class="row">
                         <div class="col s12 m12 l12">
-                            <h3>About</h3>
                                 <div class="card-panel">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus metus a est vulputate,
                                     fringilla consequat metus convallis. Cras congue ut orci in pulvinar. Sed tempus bibendum nunc eu pharetra.
@@ -36,7 +49,9 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="divider"></div>
+
+    <div id="Portfolio" class="container">
         <div class="row">
             <div class="col s12 m12 offset-m6 l12 offset-l2">
             <h1 class="center-align">Portfolio</h1>
@@ -51,17 +66,17 @@
 
             {% comment %} {% for %} {% endcomment %}
                 <div class="col s12 m6 l4">
-                    <div class="card-panel">
-                        <div class="card-image">
-                            <img src="images/sample-1.jpg">
-                            <span class="card-title">Project name goes here</span>
-                            <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="#">Link goes here</a>
-                            </div>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="https://materializecss.com/images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">arrow_drop_up</i></span>
+                            <p><a href="#">This is a link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">arrow_drop_down</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
                         </div>
                     </div>
                 </div>
@@ -71,8 +86,9 @@
         </div>
     </div>
 
+    <div class="divider"></div>
 
-    <div class="container">
+    <div id="Skills" class="container">
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
@@ -104,11 +120,15 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="divider"></div>
+
+    <div id="ContactMe" class="container">
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
                     <h1>Contact me</h1>
+                    <p>Shoot me a message and let's discuss your next project over coffee :) </p>
+                    <p>Form goes here..</p>
                 </div>
             </div>
         </div>
