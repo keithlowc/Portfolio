@@ -36,26 +36,37 @@
         </div>
     </div>
 
-
-    <div id="portfolio" class="container">
+    <div class="container">
         <div class="row">
-            <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
-                <div class="section scrollspy">
-                    <h1>Portfolio</h1>
+            <div class="col s12 m12 offset-m6 l12 offset-l2">
+            <h1 class="center-align">Portfolio</h1>
 
-                    <div class="col">
 
-                        <div class="card-panel">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus metus a est vulputate,
-                                fringilla consequat metus convallis. Cras congue ut orci in pulvinar. Sed tempus bibendum nunc eu pharetra.
-                                Donec enim quam, dignissim id porttitor vel, consectetur vel ex. Aliquam ut convallis velit, at gravida diam.
-                                Vestibulum id urna nec orci pulvinar rutrum. Nulla ut mi at quam sodales elementum sit amet ac risus.
-                                In hac habitasse platea dictumst. Suspendisse a arcu et tellus rutrum consequat.</p>
+            {% comment %} Also input an if statement if the work is only one - Then make class="col l12" {% endcomment %}
+
+            {% comment %} {% if portfolio > 2 %}
+            This appears if variable somevar is less than 100.
+            {% endif %} {% endcomment %}
+            
+
+            {% comment %} {% for %} {% endcomment %}
+                <div class="col s12 m6 l4">
+                    <div class="card-panel">
+                        <div class="card-image">
+                            <img src="images/sample-1.jpg">
+                            <span class="card-title">Project name goes here</span>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Link goes here</a>
+                            </div>
                         </div>
-                    
                     </div>
-
                 </div>
+            {% comment %} {% endfor %} {% endcomment %}
+
             </div>
         </div>
     </div>
@@ -66,13 +77,34 @@
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
                     <h1>Skills</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus metus a est vulputate, fringilla consequat metus convallis. Cras congue ut orci in pulvinar. Sed tempus bibendum nunc eu pharetra. Donec enim quam, dignissim id porttitor vel, consectetur vel ex. Aliquam ut convallis velit, at gravida diam. Vestibulum id urna nec orci pulvinar rutrum. Nulla ut mi at quam sodales elementum sit amet ac risus. In hac habitasse platea dictumst. Suspendisse a arcu et tellus rutrum consequat.</p>
+                    <p>I use <b class="bold">Django</b> for my backend and <b class="bold">React.Js</b> for the front end. <b class="bold">Docker</b> and <b class="bold">Docker</b>-compose are used
+                    for better local development and dependencies management. My objective is to create a code-base easy to deploy 
+                    and well organized.
+                    </p>
+                    <div class="row pt-4">
+                        <div class="col s4">
+                            <span class="new badge" data-badge-caption="Django">
+                                <i class="fab fa-python"></i>
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="new badge center-align" data-badge-caption="React.Js">
+                                <i class="fab fa-react"></i>
+                            </span>
+                        </div>
+                        <div class="col s4">
+                            <span class="new badge" data-badge-caption="Docker">
+                                <i class="fab fa-docker"></i>
+                            </span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 
-        <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
