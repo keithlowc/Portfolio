@@ -45,6 +45,7 @@ PRODUCTION = [
 
 # Applications created by django
 COMMON = [
+    'crispy_forms',
 ]
 
 # Applications created by you
