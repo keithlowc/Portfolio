@@ -47,6 +47,7 @@ PRODUCTION = [
 # Applications created by django
 COMMON = [
     'crispy_forms',
+    'background_task',
 ]
 
 # Applications created by you

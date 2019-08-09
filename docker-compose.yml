@@ -1,19 +1,6 @@
 version: '3'
 
 services:
-  # database:
-  #   container_name: portfolio_db
-  #   image: mysql:5.7
-  #   environment:
-  #      MYSQL_DATABASE: portfolio
-  #      MYSQL_USER: web
-  #      MYSQL_PASSWORD: root
-  #      MYSQL_ROOT_PASSWORD: root
-  #   ports:
-  #     - "127.0.0.1:3310:3306"
-  #   volumes:
-  #     - mysqldata:/var/lib/mysql
-
   database:
     container_name: portfolio_db
     image: postgres:10.1-alpine
@@ -32,6 +19,19 @@ services:
       - "8000:8000"
     depends_on:
       - database
+  
+  tasks:
+    build: .
+    restart: always
+    container_name: portfolio_django_background_tasks
+    command: bash -c "chmod 755 process_tasks.sh && ./process_tasks.sh"
+    environment: 
+      - "PYTHONUNBUFFERED=1"
+    volumes:
+      - .:/src
+    depends_on:
+      - web
+      - database 
 
 volumes:
   postgres_data:
