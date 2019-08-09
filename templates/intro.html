@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section">
-                    <img src="https://png.pngtree.com/svg/20160307/52c66f1f8b.png" alt="" class="circle responsive-img mb-4">
+                    <img src="https://user-images.githubusercontent.com/25104394/62789068-2d564500-ba96-11e9-9582-de6c0bd4c5bb.png" alt="" id="profile_image" class="circle responsive-img mb-4">
                     <h1>Keith Low</h1>
                     <h6>Freelance Software Engineer</h6>
                     <p><b>NYC</b></p>
@@ -56,12 +56,9 @@
             <div class="col s12 m12 l12 offset-l2">
             <h1 class="center-align">Portfolio</h1>
 
-
-            {% comment %} Also input an if statement if the work is only one - Then make class="col l12" {% endcomment %}
-
             {% for project in portfolio %}
                 {% if portfolio_size == 1 %}
-                    <div class="col s12 m6 offset-m3 l6 offset-l2">
+                    <div class="col s12 m6 offset-m3 l6 offset-l3">
                 {% elif portfolio_size > 2 %}
                     <div class="col s12 m6 offset-m3 l4">
                 {% else %}
@@ -81,7 +78,6 @@
                             </div>
                         </div>
                     </div>
-
             {% endfor %}
 
             </div>
@@ -129,7 +125,7 @@
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
                     <h1>Contact me</h1>
-                    <p>Send me a message and let's discuss your next project over coffee <i class="fab fa-smiley-beam"></i></p>
+                    <p>Send me a message and let's discuss your next project over coffee <i class="fab fa-smile-beam"></i></p>
                     
                 {% load crispy_forms_tags %}
                 <div class="card teal lighten-4">
