@@ -1,19 +1,6 @@
 version: '3'
 
 services:
-  # database:
-  #   container_name: portfolio_db
-  #   image: mysql:5.7
-  #   environment:
-  #      MYSQL_DATABASE: portfolio
-  #      MYSQL_USER: web
-  #      MYSQL_PASSWORD: root
-  #      MYSQL_ROOT_PASSWORD: root
-  #   ports:
-  #     - "127.0.0.1:3310:3306"
-  #   volumes:
-  #     - mysqldata:/var/lib/mysql
-
   database:
     container_name: portfolio_db
     image: postgres:10.1-alpine
@@ -23,7 +10,7 @@ services:
   web:
     build: .
     container_name: portfolio_main
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: bash -c "python3 manage.py runserver 0.0.0.0:8000 && python3 portfolio/worker.py"
     environment: 
       - "PYTHONUNBUFFERED=1"
     volumes:
@@ -32,6 +19,13 @@ services:
       - "8000:8000"
     depends_on:
       - database
+
+  redis:
+    restart: always
+    container_name: porfolio_redis_server
+    image: redis:5.0.3
+    ports:
+      - "6379:6379"
 
 volumes:
   postgres_data:

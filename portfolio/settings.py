@@ -22,12 +22,14 @@ PRODUCTION_ENV = env.bool('PRODUCTION', default=False)
 if PRODUCTION_ENV:
     BASE_DIR = root()
     SECRET_KEY = env('SECRET_KEY')
-    #DEBUG = env.bool('DEBUG', default=True)
-    DEBUG = True
-    ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',
-                     '.herokuapp.com',]
-    # ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+    DEBUG = env.bool('DEBUG', default=True)
+    #DEBUG = True
+    # ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',
+    #                  '.herokuapp.com',]
+    ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
     print('Production activated')
+    print('ALLOWED HOSTS ', ALLOWED_HOSTS)
+    print('DEBUG ', DEBUG)
 else:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     SECRET_KEY = '31k61=f^+4^)084x+^vfms(axi%$^3^^lhoy(s)z@mprzwn9@='
