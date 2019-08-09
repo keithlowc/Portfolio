@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from background_task import background
 
 from .models import Projects
 from .forms import AddContactsForm
+
+import requests
+
 
 def show_site(request):
     projects = Projects.objects.all()
@@ -14,4 +18,11 @@ def show_site(request):
         'form': form
     }
 
+    for project in projects:
+        wake_apps(project.project_url)
+
     return render(request, 'intro.html', context)
+
+@background(schedule=1)
+def wake_apps(url):
+    requests.get(url)
