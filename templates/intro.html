@@ -61,9 +61,9 @@
 
             {% for project in portfolio %}
                 {% if portfolio_size == 1 %}
-                    <div class="col s12 m6 offset-m2 l6">
+                    <div class="col s12 m6 offset-m3 l6 offset-l2">
                 {% elif portfolio_size > 2 %}
-                    <div class="col s12 m6 offset-m2 l4">
+                    <div class="col s12 m6 offset-m3 l4">
                 {% else %}
                     <div class-"col s12 m12 l12">
                 {% endif %}
@@ -72,11 +72,11 @@
                                 <img class="activator" src="{{ project.image_url }}">
                             </div>
                             <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">{{ project.title }}<i class="material-icons right">arrow_drop_up</i></span>
+                                <span class="card-title activator grey-text text-darken-4">{{ project.title|truncatechars:11 }}</br><i class="material-icons right">arrow_drop_up</i></span>
                                 <a class="url_link" href="{{ project.project_url }}">Link to project</a>
                             </div>
                             <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4"><b>Description</b><i class="material-icons right">arrow_drop_down</i></span>
+                                <span class="card-title grey-text text-darken-4"><b>{{project.title}}</b><i class="material-icons right">arrow_drop_down</i></span>
                                 <p>{{ project.description }}</p>
                             </div>
                         </div>
@@ -129,9 +129,9 @@
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
                     <h1>Contact me</h1>
-                    <p>Send me a message and let's discuss your next project over coffee</p>
+                    <p>Send me a message and let's discuss your next project over coffee <i class="fab fa-smiley-beam"></i></p>
                     
-                    {% load crispy_forms_tags %}
+                {% load crispy_forms_tags %}
                 <div class="card teal lighten-4">
                     <form method="POST">
                         {% csrf_token %}

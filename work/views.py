@@ -14,6 +14,4 @@ def show_site(request):
         'form': form
     }
 
-    print('here we go', round(12/len(projects)))
-
     return render(request, 'intro.html', context)
