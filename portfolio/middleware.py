@@ -1,7 +1,6 @@
 from work.background_jobs import background_functions
 from work.models import Projects
 
-import subprocess
 
 '''
 This middleware function checks if an user has opened the website and sends a signal
@@ -13,7 +12,7 @@ class WakeAppsOnUserVisit:
         self.get_response = get_response
     
     def __call__(self, request):
-        is_home = request.path_info.startswith('/')
+        is_home = request.path_info.startswith('')
 
         if is_home:
             projects = Projects.objects.all()

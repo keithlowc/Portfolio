@@ -20,18 +20,18 @@ services:
     depends_on:
       - database
   
-  tasks:
-    build: .
-    restart: always
-    container_name: portfolio_django_background_tasks
-    command: bash -c "chmod 755 process_tasks.sh && ./process_tasks.sh"
-    environment: 
-      - "PYTHONUNBUFFERED=1"
-    volumes:
-      - .:/src
-    depends_on:
-      - web
-      - database 
+  # tasks:
+  #   build: .
+  #   restart: always
+  #   container_name: portfolio_django_background_tasks
+  #   command: bash -c "chmod 755 process_tasks.sh && ./process_tasks.sh"
+  #   environment: 
+  #     - "PYTHONUNBUFFERED=1"
+  #   volumes:
+  #     - .:/src
+  #   depends_on:
+  #     - web
+  #     - database 
 
 volumes:
   postgres_data:
