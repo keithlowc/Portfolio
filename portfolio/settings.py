@@ -36,7 +36,7 @@ else:
         '*',
     ]
 
-# Application for local development
+# Applications only for local development
 LOCAL = [
 ]
 
@@ -70,6 +70,10 @@ if PRODUCTION_ENV:
 else:
     INSTALLED_APPS += LOCAL
 
+CUSTOM_MIDDLEWARE = [
+    'portfolio.middleware.WakeAppsOnUserVisit',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,7 +82,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+] + CUSTOM_MIDDLEWARE
 
 ROOT_URLCONF = 'portfolio.urls'
 

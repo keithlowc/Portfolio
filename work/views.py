@@ -18,11 +18,4 @@ def show_site(request):
         'form': form
     }
 
-    for project in projects:
-        wake_apps(project.project_url)
-
     return render(request, 'intro.html', context)
-
-@background(schedule=1)
-def wake_apps(url):
-    requests.get(url)
