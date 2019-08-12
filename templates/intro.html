@@ -59,10 +59,10 @@
             {% for project in portfolio %}
                 {% if portfolio_size == 1 %}
                     <div class="col s12 m6 offset-m3 l6 offset-l3">
-                {% elif portfolio_size > 2 %}
-                    <div class="col s12 m6 offset-m3 l4">
+                {% elif portfolio_size == 2 %}
+                    <div class="col s12 m6 offset-m3 l6">
                 {% else %}
-                    <div class-"col s12 m12 l12">
+                    <div class="col s12 m6 offset-m3 l4">
                 {% endif %}
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
