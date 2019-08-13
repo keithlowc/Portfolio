@@ -1,4 +1,3 @@
-from work.background_jobs import background_functions
 from work.models import Projects
 
 import asyncio
@@ -17,9 +16,9 @@ class WakeAppsOnUserVisit:
     def __call__(self, request):
         
         urls_list = []
-        is_home = request.path_info.startswith('')
+        is_admin = request.path_info.startswith('/admin')
 
-        if is_home:
+        if not is_admin:
             projects = Projects.objects.all()
 
             for project in projects:
@@ -32,9 +31,10 @@ class WakeAppsOnUserVisit:
             
         return self.get_response(request)
 
-
+'''
+Function created to send a GET request to a list of URLS
+'''
 def wake_apps(urls_list):
     for url in urls_list:
         requests.get(url)
         print('Sending requests - for: ', url)
-
