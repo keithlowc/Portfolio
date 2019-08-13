@@ -24,10 +24,11 @@ class WakeAppsOnUserVisit:
             for project in projects:
                 urls_list.append(project.project_url)
 
+        # Asynchronous functions
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-
         loop.run_in_executor(None, wake_apps, urls_list)
+        # Asynchronous functions
             
         return self.get_response(request)
 
