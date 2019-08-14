@@ -29,9 +29,9 @@ def show_site(request):
         if form.is_valid():
             contact = form.save(commit=False)
             contact.save()
-            messages.success(request, 'Succesfully added comment')
+            messages.success(request, 'Succesfully submitted message!')
         else:
-            messages.warning(request, 'Something went wrong! Please check your form')
+            messages.warning(request, 'Something went wrong! Please check your form!')
     
     form = AddContactsForm()
 
@@ -58,4 +58,3 @@ def capture_linkedin(requests):
 
 def capture_instagram(requests):
     return HttpResponseRedirect('https://instagram.com/keithlwc')
-
