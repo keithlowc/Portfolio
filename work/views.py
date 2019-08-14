@@ -49,16 +49,13 @@ Analytics related routes - We use these to have the middleware run
 on these specific routes.
 '''
 def capture_github(requests):
-    print('Works')
     return HttpResponseRedirect('https://github.com/keithlowc')
 
 
 def capture_linkedin(requests):
-    print('Works')
     return HttpResponseRedirect('https://www.linkedin.com/in/keithlowc/')
 
 
 def capture_instagram(requests):
-    print('Works')
     return HttpResponseRedirect('https://instagram.com/keithlwc')
 
