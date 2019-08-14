@@ -72,6 +72,7 @@ else:
 
 CUSTOM_MIDDLEWARE = [
     'portfolio.middleware.WakeAppsOnUserVisit',
+    'portfolio.middleware.CaptureAnalytics',
 ]
 
 MIDDLEWARE = [
