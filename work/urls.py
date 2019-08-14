@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import show_site
+from .views import redirect_to_site, show_site, capture_github, capture_linkedin, capture_instagram
 
 urlpatterns = [
-    path('', show_site, name='show_site'),
+    path('', redirect_to_site, name='redirect_to_site'),
+    path('home', show_site, name='show_site'),
+
+    path('github', capture_github, name='capture_github'),
+    path('linkedin', capture_linkedin, name='capture_linkedin'),
+    path('instagram', capture_instagram, name='capture_instagram'),
 ]
