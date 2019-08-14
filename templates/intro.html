@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-            {% comment %} {% if messages %}
+    <div id="Intro" class="container container_full_height">
+        <div class="row">
+            <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
+
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
                         <div class="container">
@@ -14,14 +17,18 @@
                         </div>
                     </div>
                 {% endfor %}
-            {% endif %} {% endcomment %}
 
-    <div id="Intro" class="container container_full_height">
-        <div class="row">
-            <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
+
                 <div class="section">
                     <img src="https://user-images.githubusercontent.com/25104394/62789068-2d564500-ba96-11e9-9582-de6c0bd4c5bb.png" alt="" id="profile_image" class="circle responsive-img mb-4">
+                    
                     <h1>Keith Low</h1>
+
+                    <div class="progress">
+                        <div class="indeterminate">
+                        </div>
+                    </div>
+                        
                     <h6>Freelance Software Engineer</h6>
                     <p><b>NYC</b></p>
                     <div class="row">
@@ -142,37 +149,28 @@
                     <p>Send me a message and let's discuss your next project over coffee <i class="fab fa-smile-beam"></i></p>
                     
                 {% load crispy_forms_tags %}
-                <div class="card teal lighten-4">
-                    <form method="POST">
+                <div class="row">
+                    <form class="col s12" method="POST">
                         {% csrf_token %}
-                    
-                        <div class="form-row">
-                            <div class="form-group col s6 m6 l6">
+                        <div class="row">
+                            <div class="input-field col s6">
                                 {{ form.full_name|as_crispy_field}}
                             </div>
-                            <div class="form-group col s6 m6 l6">
+                            <div class="input-field col s6">
                                 {{ form.email|as_crispy_field}}
                             </div>
                         </div>
-
-                        <div class="form-row">
-                            <div class="form-group col s6 m6 l6">
+                        <div class="row">
+                            <div class="input-field col s12">
                                 {{ form.subject|as_crispy_field}}
                             </div>
-                            <div class="form-group col s6 m6 l6">
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
                                 {{ form.contact_message|as_crispy_field}}
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col s4 m4 l4">
-                            </div>
-                            <div class="col s4 m4 l4">
-                            </div>
-                            <div class="ccol s4 m4 l4">
-                                <button type="submit" class="btn btn-success">Shoot message!</button>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-success">Shoot message!</button>
                     </form>
                 </div>
 
