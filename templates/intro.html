@@ -20,12 +20,12 @@
 
 
                 <div class="section">
-                    <img src="https://user-images.githubusercontent.com/25104394/62789068-2d564500-ba96-11e9-9582-de6c0bd4c5bb.png" alt="" id="profile_image" class="circle responsive-img mb-4">
+                    <img src= {{ data.profile_url }} alt="" id="profile_image" class="circle responsive-img mb-4">
                     
                     <h1 class="waves-light">Keith Low</h1>
                         
                     <h6>Freelance Software Engineer</h6>
-                    <p><b>NYC</b></p>
+                    <p><b>NYC&nbsp</b> <i class="fas fa-city"></i> </p>
                     <div class="row">
                         <div class="col s4">
                             <a href={% url 'capture_github' %} class="waves-effect waves-light btn"><i class="fab fa-github fa-4x"></i></a>
@@ -56,13 +56,11 @@
                 <div class="section">
                     <div class="row">
                         <div class="col s12 m12 l12">
-                                <div class="card-panel">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent finibus metus a est vulputate,
-                                    fringilla consequat metus convallis. Cras congue ut orci in pulvinar. Sed tempus bibendum nunc eu pharetra.
-                                    Donec enim quam, dignissim id porttitor vel, consectetur vel ex. Aliquam ut convallis velit, at gravida diam.
-                                    Vestibulum id urna nec orci pulvinar rutrum. Nulla ut mi at quam sodales elementum sit amet ac risus.
-                                    In hac habitasse platea dictumst. Suspendisse a arcu et tellus rutrum consequat.</p>
-                                </div>
+                                {% comment %} <div class="card-panel teal lighten-3 z-depth-4"> {% endcomment %}
+                                <blockquote>
+                                    {{ data.about }}
+                                </blockquote>
+                                {% comment %} </div> {% endcomment %}
                         </div>
                     </div>          
                 </div>
@@ -141,7 +139,9 @@
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
                     <h1>Contact me</h1>
-                    <p>Send me a message and let's discuss your next project over coffee!</p>
+                    <blockquote>
+                        Send me a message and let's discuss your next project over coffee!
+                    </blockquote>
                     
                 {% load crispy_forms_tags %}
                 <div class="row">
