@@ -22,6 +22,7 @@ urlpatterns = [
     path('', redirect_to_site, name='redirect_to_site'),
     path('home', show_site, name='show_site'),
 
+    # Paths for Analytics 
     path('github', capture_github, name='capture_github'),
     path('linkedin', capture_linkedin, name='capture_linkedin'),
     path('instagram', capture_instagram, name='capture_instagram'),

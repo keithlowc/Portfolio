@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 
-from .models import Projects
+from .models import Projects, PageData
 from .forms import AddContactsForm
 
 import requests
@@ -22,6 +22,13 @@ Main view to show the whole site
 def show_site(request):
     projects = Projects.objects.all()
 
+    data = 'Value has not been defined!'
+
+    try:
+        data = PageData.objects.all()[0]
+    except Exception as e:
+        print('Error ', e)
+
     form = AddContactsForm()
 
     if request.method == 'POST':
@@ -29,15 +36,16 @@ def show_site(request):
         if form.is_valid():
             contact = form.save(commit=False)
             contact.save()
-            messages.success(request, 'Succesfully added comment')
+            messages.success(request, 'Succesfully submitted message!')
         else:
-            messages.warning(request, 'Something went wrong! Please check your form')
+            messages.warning(request, 'Something went wrong! Please check your form!')
     
     form = AddContactsForm()
 
     context = {
         'portfolio': projects,
         'portfolio_size': len(projects),
+        'data': data,
         'form': form
     }
 
@@ -58,4 +66,3 @@ def capture_linkedin(requests):
 
 def capture_instagram(requests):
     return HttpResponseRedirect('https://instagram.com/keithlwc')
-
