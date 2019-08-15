@@ -29,6 +29,11 @@ heroku config:set SECRET_KEY='<SECRET KEY FROM ABOVE>'
 
 https://trello.com/b/GyVWmKdt/keiths-portfolio
 
+### Common issues: 
+> CSS is not showing on Admin page after deployment on Heroku
+> - Set DEBUG = TRUE
+> - And look into dj-static and follow the steps on the pypi site.
+
 
 ### Resources
 
