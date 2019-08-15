@@ -27,7 +27,6 @@ if PRODUCTION_ENV:
     ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',
                      '.herokuapp.com',]
     # ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
-    print('Debug: ', DEBUG)
     print('Production activated')
 else:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
