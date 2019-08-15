@@ -57,3 +57,17 @@ class Analytics(models.Model):
     
     def __str__(self):
         return f'{self.type_of_analytics} - @ {self.date_clicked}'
+
+'''
+Model controls the about page data
+'''
+class PageData(models.Model):
+    profile_url = models.CharField(max_length=150, blank=False, null=False)
+    about = models.TextField(max_length=1000, blank=False,null=False)
+
+    class Meta:
+        verbose_name = 'Page Data'
+        verbose_name_plural = 'Page Data'
+
+    def __str__(self):
+        return 'Website Main Data'
