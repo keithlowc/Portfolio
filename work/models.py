@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 '''
 Model created for the portfolio projects
@@ -7,7 +8,7 @@ static files.
 '''
 class Projects(models.Model):
     title = models.CharField(max_length=50, blank=False,null=False)
-    description = models.TextField(max_length=450, blank=False, null=False)
+    description = models.TextField(max_length=1000, blank=False, null=False)
     image_url = models.CharField(max_length=150, blank=False, null=False)
     project_url = models.CharField(max_length=150, blank=False, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
