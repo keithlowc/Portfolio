@@ -85,10 +85,10 @@
                 {% endif %}
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ project.image_url }}">
+                                <img class="activator" src="{{ project.image_url }}" width="250" height="350">
                             </div>
                             <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">{{ project.title|truncatechars:11 }}</br><i class="material-icons right">arrow_drop_up</i></span>
+                                <span class="card-title activator grey-text text-darken-4">{{ project.title|truncatechars:25 }}</br><i class="material-icons right">arrow_drop_up</i></span>
                                 <a class="url_link" href="{{ project.project_url }}">Link to project</a>
                             </div>
                             <div class="card-reveal">
