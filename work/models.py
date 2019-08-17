@@ -57,7 +57,7 @@ class Analytics(models.Model):
         verbose_name_plural = 'Analytics'
     
     def __str__(self):
-        return f'{self.type_of_analytics} - @ {self.date_clicked}'
+        return f'{self.type_of_analytics} - @ {self.date_clicked.strftime("%b %d %Y %H:%M:%S")}'
 
 '''
 Model controls the about page data
