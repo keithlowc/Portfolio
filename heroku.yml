@@ -1,4 +1,6 @@
 # Deployment container settings for Heroku
+# Reads from the docker file and starts the container 
+# Needed for deployment
 
 setup:
  addons:

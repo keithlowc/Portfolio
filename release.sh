@@ -1,5 +1,8 @@
 #!/bin/bash
+
+# This file controls the automatic migrations 
+# When deployed to heroku
+
 python3 manage.py makemigrations
 python3 manage.py migrate
-# python3 manage.py collectstatic --noinput
 echo 'It worked!!'
