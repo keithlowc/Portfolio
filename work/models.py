@@ -26,10 +26,10 @@ Model created to manage the contact information of people
 when they send me a message.
 '''
 class Contacts(models.Model):
-    full_name = models.CharField(max_length=100, blank=False, null=False)
+    name = models.CharField(max_length=100, blank=False, null=False)
     email = models.CharField(max_length=100, blank=False, null=False)
     subject = models.CharField(max_length=150, blank=False, null=False)
-    contact_message = models.TextField(max_length=450, blank=False, null=False)
+    message = models.TextField(max_length=450, blank=False, null=False)
 
     class Meta:
         verbose_name = 'Contacts'

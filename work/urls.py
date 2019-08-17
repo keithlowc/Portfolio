@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import redirect_to_site, show_site, capture_github, capture_linkedin, capture_instagram
+from .views import redirect_to_site, show_site, capture_github, capture_linkedin
 
 urlpatterns = [
     path('', redirect_to_site, name='redirect_to_site'),
@@ -25,5 +25,4 @@ urlpatterns = [
     # Paths for Analytics 
     path('github', capture_github, name='capture_github'),
     path('linkedin', capture_linkedin, name='capture_linkedin'),
-    path('instagram', capture_instagram, name='capture_instagram'),
 ]
