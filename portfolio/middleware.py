@@ -49,18 +49,22 @@ class CaptureAnalytics:
         self.get_response = get_response
     
     def __call__(self, request):
+        header = request.META
+
+        print(header)
+
         is_github = request.path_info.startswith('/github')
         is_linkedin = request.path_info.startswith('/linkedin')
         is_instagram = request.path_info.startswith('/instagram')
 
         if is_github:
-            git = Analytics(type_of_analytics='G')
+            git = Analytics(type_of_analytics='G', headers_information=header)
             git.save()
         elif is_linkedin:
-            linkedin = Analytics(type_of_analytics='L')
+            linkedin = Analytics(type_of_analytics='L', headers_information=header)
             linkedin.save()
         elif is_instagram:
-            instagram = Analytics(type_of_analytics='I')
+            instagram = Analytics(type_of_analytics='I', headers_information=header)
             instagram.save()
 
         return self.get_response(request)
