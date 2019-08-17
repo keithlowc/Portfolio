@@ -1,6 +1,6 @@
-Keith's personal portfolio website. The website itself is a Django application hosted on heroku. Since most of my projects are hosted for free on heroku the servers go to sleep every 30 seconds. So, when someone opens this website, it becomes a gateway to waking up the other websites via a GET request that run on the background. Also, this website is built as a Content Management System - Thus, I am able to change most of the things on the website without pushing new code.
+Keith's personal portfolio website. The website itself is a Django application hosted on heroku. Since most of my projects are hosted on the free-tier on heroku the servers go to sleep every 30 minutes and it takes about 15-30 seconds to wake them up. So, when someone opens this website, it becomes a gateway to waking up the other websites via a GET request that runs on the background. Also, this website is built as a Content Management System - Thus, I am able to change most of the things on the website without pushing new code.
 
-### Run the following command to re-create a secret key
+### Run the following command to re-create a secret key needed for deployment on heroku
 
 ```
 docker exec <CONTAINER NAME> python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
@@ -28,6 +28,11 @@ heroku config:set SECRET_KEY='<SECRET KEY FROM ABOVE>'
 ### To Do:
 
 https://trello.com/b/GyVWmKdt/keiths-portfolio
+
+### Common issues: 
+> CSS is not showing on Admin page after deployment on Heroku
+> - Set DEBUG = TRUE
+> - And look into dj-static and follow the steps on the pypi site.
 
 
 ### Resources

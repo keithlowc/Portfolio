@@ -19,27 +19,15 @@
                 {% endfor %} {% endcomment %}
 
 
-                <div class="section">
+                <div class="section scrollspy">
                     <img src= {{ data.profile_url }} alt="" id="profile_image" class="circle responsive-img mb-4">
                     
                     <h1 class="waves-light">Keith Low</h1>
                         
                     <h6>Freelance Software Engineer</h6>
                     <p><b>NYC&nbsp</b> <i class="fas fa-city"></i> </p>
-                    <div class="row">
-                        <div class="col s4">
-                            <a href={% url 'capture_github' %} class="waves-effect waves-light btn"><i class="fab fa-github fa-4x"></i></a>
-                        </div>
-                        <div class="col s4">
-                            <a href={% url 'capture_linkedin' %} class="waves-effect waves-light btn"><i class="fab fa-linkedin fa-4x"></i></a>
-                        </div>
-                        <div class="col s4">
-                            <a href={% url 'capture_instagram' %} class="waves-effect waves-light btn"><i class="fab fa-instagram fa-4x"></i></a>
-                        </div>
-                    </div>
 
                     <div class="progress">
-                        <div class=""></div>
                     </div>
                 </div>
             </div>
@@ -51,16 +39,16 @@
     <div id="About" class="container">
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
-            <h1>About</h1>
+            <h1><i class="fas fa-info-circle"></i>&nbsp About</h1>
             
                 <div class="section">
                     <div class="row">
                         <div class="col s12 m12 l12">
-                                {% comment %} <div class="card-panel teal lighten-3 z-depth-4"> {% endcomment %}
+                                <div class="card-panel teal z-depth-4">
                                 <blockquote>
-                                    {{ data.about }}
+                                    <p style="color:white">{{ data.about }}<p>
                                 </blockquote>
-                                {% comment %} </div> {% endcomment %}
+                                </div>
                         </div>
                     </div>          
                 </div>
@@ -73,7 +61,7 @@
     <div id="Portfolio" class="container">
         <div class="row">
             <div class="col s12 m12 l12 offset-l2">
-            <h1 class="center-align">Portfolio</h1>
+            <h1 class="center-align"><i class="fas fa-hard-hat"></i>&nbsp Portfolio</h1>
 
             {% for project in portfolio %}
                 {% if portfolio_size == 1 %}
@@ -85,10 +73,10 @@
                 {% endif %}
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ project.image_url }}">
+                                <img class="activator" src="{{ project.image_url }}" width="250" height="300">
                             </div>
                             <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">{{ project.title|truncatechars:11 }}</br><i class="material-icons right">arrow_drop_up</i></span>
+                                <span class="card-title activator grey-text text-darken-4">{{ project.title|truncatechars:25 }}</br><i class="material-icons right">arrow_drop_up</i></span>
                                 <a class="url_link" href="{{ project.project_url }}">Link to project</a>
                             </div>
                             <div class="card-reveal">
@@ -109,13 +97,13 @@
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
-                    <h1>Skills</h1>
+                    <h1><i class="fas fa-tools"></i>&nbsp Skills</h1>
                     <blockquote>
                         I use <b class="bold">Django</b> for my backend and <b class="bold">React.Js</b> for the front end. <b class="bold">Docker</b> and <b class="bold">Docker-compose</b> are used
-                        for better local development and dependencies management. My objective is to create a code-base easy to deploy 
-                        and well organized.
+                        for better local development and dependencies management, also used for easier deployment to <b>production</b>. My objective is to create a code-base easy to deploy 
+                        and well organized, as well as to have fun! <i class="fas fa-smile-beam"></i>
                     </blockquote>
-                    <div class="row pt-4">
+                    <div class="row">
                         <div class="col s4">
                             <a href="" class="waves-effect waves-light btn"><i class="fab fa-python"></i>&nbsp Django</a>
                         </div>
@@ -126,7 +114,8 @@
                             <a href="" class="waves-effect waves-light btn"><i class="fab fa-docker"></i>&nbsp Docker</a>
                         </div>
                     </div>
-                    <div class="progress"></div>
+                    <div class="progress">
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,18 +127,20 @@
         <div class="row">
             <div class="col s12 m6 offset-m3 l6 offset-l5 center-align">
                 <div class="section scrollspy">
-                    <h1>Contact me</h1>
-                    <blockquote>
-                        Send me a message and let's discuss your next project over coffee!
-                    </blockquote>
                     
                 {% load crispy_forms_tags %}
-                <div class="row">
+                <div class="row z-depth-2">
+                    <div class="row" style="padding-top:2%">
+                        <div class="col s12 m12 l12">
+                            <h1><i class="fas fa-envelope"></i> &nbsp Contact</h1>
+                        </div>
+                    </div>
+
                     <form class="col s12" method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="input-field col s6">
-                                {{ form.full_name|as_crispy_field}}
+                                {{ form.name|as_crispy_field}}
                             </div>
                             <div class="input-field col s6">
                                 {{ form.email|as_crispy_field}}
@@ -162,10 +153,10 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                {{ form.contact_message|as_crispy_field}}  
+                                {{ form.message|as_crispy_field}}  
                             </div>
                         </div>
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Shoot message!
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Shoot Me a Message!
                             <i class="material-icons right">send</i>
                         </button>
                     </form>

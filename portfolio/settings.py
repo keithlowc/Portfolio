@@ -22,11 +22,8 @@ PRODUCTION_ENV = env.bool('PRODUCTION', default=False)
 if PRODUCTION_ENV:
     BASE_DIR = root()
     SECRET_KEY = env('SECRET_KEY')
-    #DEBUG = env.bool('DEBUG', default=True)
-    DEBUG = True
-    ALLOWED_HOSTS = ['keithl-portfolio.herokuapp.com',
-                     '.herokuapp.com',]
-    # ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+    DEBUG = env.bool('DEBUG', default=True)
+    ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
     print('Production activated')
 else:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -155,8 +152,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Logging and debugging in Heroku Production
 
@@ -194,6 +191,3 @@ LOGGING = {
 }
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
-
-
-

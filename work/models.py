@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 '''
 Model created for the portfolio projects
@@ -7,7 +8,7 @@ static files.
 '''
 class Projects(models.Model):
     title = models.CharField(max_length=50, blank=False,null=False)
-    description = models.TextField(max_length=450, blank=False, null=False)
+    description = models.TextField(max_length=1000, blank=False, null=False)
     image_url = models.CharField(max_length=150, blank=False, null=False)
     project_url = models.CharField(max_length=150, blank=False, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -25,10 +26,10 @@ Model created to manage the contact information of people
 when they send me a message.
 '''
 class Contacts(models.Model):
-    full_name = models.CharField(max_length=100, blank=False, null=False)
+    name = models.CharField(max_length=100, blank=False, null=False)
     email = models.CharField(max_length=100, blank=False, null=False)
     subject = models.CharField(max_length=150, blank=False, null=False)
-    contact_message = models.TextField(max_length=450, blank=False, null=False)
+    message = models.TextField(max_length=450, blank=False, null=False)
 
     class Meta:
         verbose_name = 'Contacts'
@@ -56,7 +57,7 @@ class Analytics(models.Model):
         verbose_name_plural = 'Analytics'
     
     def __str__(self):
-        return f'{self.type_of_analytics} - @ {self.date_clicked}'
+        return f'{self.type_of_analytics} - @ {self.date_clicked.strftime("%b %d %Y %H:%M:%S")}'
 
 '''
 Model controls the about page data

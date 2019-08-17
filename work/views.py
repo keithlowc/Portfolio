@@ -62,7 +62,3 @@ def capture_github(requests):
 
 def capture_linkedin(requests):
     return HttpResponseRedirect('https://www.linkedin.com/in/keithlowc/')
-
-
-def capture_instagram(requests):
-    return HttpResponseRedirect('https://instagram.com/keithlwc')
