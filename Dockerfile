@@ -1,5 +1,3 @@
-# Dockerfile that builds the python container for the application 
-
 FROM python:3.7
 
 ENV PYTHONBUFFERED 1 
