@@ -1,3 +1,9 @@
+### Link to portfolio (Keep in mind heroku free tier takes time to wake the servers):
+
+https://dev-keithl-portfolio.herokuapp.com/
+
+### Description
+
 Keith's personal portfolio website. The website itself is a Django application hosted on heroku. Since most of my projects are hosted on the free-tier on heroku the servers go to sleep every 30 minutes and it takes about 15-30 seconds to wake them up. So, when someone opens this website, it becomes a gateway to waking up the other websites via a GET request that runs on the background. Also, this website is built as a Content Management System - Thus, I am able to change most of the things on the website without pushing new code.
 
 ### Run the following command to re-create a secret key needed for deployment on heroku
