@@ -20,7 +20,7 @@ def redirect_to_site(requests):
 Main view to show the whole site
 '''
 def show_site(request):
-    projects = Projects.objects.all()
+    projects = Projects.objects.order_by('created_at').reverse()
 
     data = 'Value has not been defined!'
 
