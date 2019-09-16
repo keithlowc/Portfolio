@@ -49,9 +49,9 @@ class Analytics(models.Model):
         ('L', 'LinkedIn'),
         ('I', 'Instagram'),
     )
-    type_of_analytics = models.CharField(max_length=50, choices=TYPES_OF_ANALYTICS)
-    headers_information = models.TextField(max_length=2000, null=True)
-    date_clicked = models.DateTimeField(auto_now_add=True)
+    type = models.CharField(max_length=50, choices=TYPES_OF_ANALYTICS)
+    headers = models.TextField(max_length=2000, null=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = 'Analytic'
