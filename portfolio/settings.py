@@ -45,6 +45,7 @@ PRODUCTION = [
 COMMON = [
     'crispy_forms',
     'background_task',
+    'rest_framework',
 ]
 
 # Applications created by you
@@ -191,3 +192,15 @@ LOGGING = {
 }
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
+
+# Api
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+
